@@ -36,12 +36,25 @@ function playRound() {
       console.log("Wrong input, please type rock, paper, or scissor");
     }
   }
-  console.log(`userScore = ${userScore}, cpuScore = ${cpuScore}`);
   return userScore, cpuScore
 }
 
-playRound();
 
+function game(gameResult) {
+  console.log(`userScore = ${userScore}, cpuScore = ${cpuScore}`);
+  let finalResult;
+  if (userScore > cpuScore) {
+    finalResult = alert("You are the winner, human kind has been saved!!!");
+  } else if (userScore < cpuScore) {
+    finalResult = alert("You lost, computer will take over the world!!!");
+  } else if (userScore === cpuScore) {
+    finalResult = alert("It is a tie, try again or live together with the computer");
+  }
+
+  return finalResult
+}
+let gameResult = playRound();
+game(gameResult);
 
 /* Pseudo Code
 
@@ -81,7 +94,7 @@ for i = 1 to 5
     print("CPU wins this round!")
     cpuScore = cpuScore + 1
 
-// Display the final scores and the winner
+  // Display the final scores and the winner
 print("Final scores:")
 print("You: " + userScore)
 print("CPU: " + cpuScore)
@@ -93,4 +106,5 @@ else if userScore < cpuScore
 else
   print("It's a draw!")
 ```
+
 */
