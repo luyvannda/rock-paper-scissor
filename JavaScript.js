@@ -18,18 +18,18 @@ function playRound() {
     const playerSelection = prompt(`Please type rock, paper, or scissor`, "");
     let playerLowerCase = playerSelection.toLowerCase();
     if (choices.includes(playerLowerCase)) {
-      console.log(`This is what you chose: ${playerLowerCase}`);
-      console.log(`This what computer choose: ${computerSelection}`);
+      console.log(`What you chose: ${playerLowerCase}`);
+      console.log(`What computer chose: ${computerSelection}`);
 
       if (playerLowerCase === computerSelection) {
         console.log(`It is a tie, good luck next round`);
       } else if (playerLowerCase === "rock" && computerSelection === "scissor"
         || playerLowerCase === "paper" && computerSelection === "rock"
         || playerLowerCase === "scissor" && computerSelection === "paper") {
-        console.log(`You win this round`);
+        console.log(`You won this round`);
         userScore++;
       } else {
-        console.log(`Computer win this round, come on pull yourself together`);
+        console.log(`Computer won this round, come on pull yourself together`);
         cpuScore++;
       }
     } else {
