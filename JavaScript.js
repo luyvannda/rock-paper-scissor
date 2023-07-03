@@ -6,17 +6,42 @@ let cpuScore = 0;
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * choices.length);
   const randomChoice = choices[randomIndex];
-  console.log(randomChoice);
   return randomChoice
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
   // your code here!
+  let round = 5;
+
+  for (let i = 1; i <= 5; i++) {
+    const computerSelection = getComputerChoice();
+    const playerSelection = prompt(`Please type rock, paper, or scissor`, "");
+    let playerLowerCase = playerSelection.toLowerCase();
+    if (choices.includes(playerLowerCase)) {
+      console.log(`This is what you chose: ${playerLowerCase}`);
+      console.log(`This what computer choose: ${computerSelection}`);
+
+      if (playerLowerCase === computerSelection) {
+        console.log(`It is a tie, good luck next round`);
+      } else if (playerLowerCase === "rock" && computerSelection === "scissor"
+        || playerLowerCase === "paper" && computerSelection === "rock"
+        || playerLowerCase === "scissor" && computerSelection === "paper") {
+        console.log(`You win this round`);
+        userScore++;
+      } else {
+        console.log(`Computer win this round, come on pull yourself together`);
+        cpuScore++;
+      }
+    } else {
+      console.log("Wrong input, please type rock, paper, or scissor");
+    }
+  }
+  console.log(`userScore = ${userScore}, cpuScore = ${cpuScore}`);
+  return userScore, cpuScore
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+playRound();
+
 
 /* Pseudo Code
 
