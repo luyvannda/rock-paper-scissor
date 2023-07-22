@@ -1,4 +1,4 @@
-const choices = ["rock", "paper", "scissor"];
+const choices = ["rock", "paper", "scissors"];
 
 let userScore = 0;
 let cpuScore = 0;
@@ -15,7 +15,7 @@ function playRound() {
 
   for (let i = 1; i <= 5; i++) {
     const computerSelection = getComputerChoice();
-    const playerSelection = prompt(`Please type rock, paper, or scissor`, "");
+    const playerSelection = prompt(`Please type rock, paper, or scissors`, "");
     let playerLowerCase = playerSelection.toLowerCase();
     if (choices.includes(playerLowerCase)) {
       console.log(`What you chose: ${playerLowerCase}`);
@@ -23,9 +23,9 @@ function playRound() {
 
       if (playerLowerCase === computerSelection) {
         console.log(`It is a tie, good luck next round`);
-      } else if (playerLowerCase === "rock" && computerSelection === "scissor"
+      } else if (playerLowerCase === "rock" && computerSelection === "scissors"
         || playerLowerCase === "paper" && computerSelection === "rock"
-        || playerLowerCase === "scissor" && computerSelection === "paper") {
+        || playerLowerCase === "scissors" && computerSelection === "paper") {
         console.log(`You won this round`);
         userScore++;
       } else {
@@ -33,7 +33,7 @@ function playRound() {
         cpuScore++;
       }
     } else {
-      console.log("Wrong input, please type rock, paper, or scissor");
+      console.log("Wrong input, please type rock, paper, or scissors");
     }
   }
   return userScore, cpuScore
