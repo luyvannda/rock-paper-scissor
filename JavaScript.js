@@ -53,8 +53,8 @@ function game(gameResult) {
 
   return finalResult
 }
-let gameResult = playRound();
-game(gameResult);
+// let gameResult = playRound();
+// game(gameResult);
 
 /* Pseudo Code
 

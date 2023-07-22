@@ -5,26 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissor</title>
-  <script src="JavaScript.js"></script>
+  <script src="JavaScript.js" defer></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1>Rock Paper Scissor</h1>
-  <p>Pseudocode</p>
-  <ol>
-    <li>Start the game</li>
-    <li>Ask the user to choose rock, paper or scissors</li>
-    <li>Generate a random number between 0 and 2 to represent the CPU's choice</li>
-    <li>Compare the user's choice with the CPU's choice</li>
-    <li>If the choices are the same, it's a tie</li>
-    <li>If the user chooses rock and CPU chooses scissors or if the user chooses paper
-      and CPU chooses rock or if the user chooses scissors and CPU chooses paper, then
-      the user wins. Otherwise, CPU wins</li>
-    <li>Ask if the user wants to play again</li>
-    <li>If yes, go back to step 2</li>
-    <li>If no, end the game</li>
-  </ol>
+
+  <div class="container">
+    <header class="header">
+      <h1>Rock Paper Scissor</h1>
+      <button id="restart" class="restart-btn">Restart Game</button>
+    </header>
+  </div>
+
 </body>
 
 </html>
