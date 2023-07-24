@@ -2,9 +2,9 @@
 
 :root {
   --main-sea-blue: rgb(169, 218, 222);
-  --main-dark-color: rgba(255, 255, 255, 0);
+  --main-dark-color: #000000;
   --main-gray-color: rgba(255, 255, 255, 0.932);
-  --win-color: rgb(111, 188, 111);
+  --win-color: rgb(4, 174, 4);
   --lost-color: rgb(245, 59, 59);
   --modal-duration: 1s;
 }
@@ -30,6 +30,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   background: var(--main-sea-blue);
+  z-index: -1;
 }
 
 .container {
@@ -45,8 +46,9 @@ body {
       rgba(255, 0, 0, 0.373), rgba(255, 166, 0, 0.717),
       rgb(255, 225, 0), green,
       blue, indigo, rgb(6, 1, 6));
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .restart-btn {
@@ -63,4 +65,27 @@ body {
   border: 1px solid var(--win-color);
   cursor: pointer;
   color: var(--main-gray-color);
+}
+
+.score {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.score p:first-child {
+  color: var(--win-color);
+  background: var(--main-gray-color);
+  padding: 0.2rem;
+}
+
+.score p:last-child {
+  color: var(--lost-color);
+  background: var(--main-dark-color);
+  padding: 0.2rem;
+}
+
+.container h2 {
+  margin: 0.2rem 0 1.5rem 0;
 }
