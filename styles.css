@@ -3,7 +3,7 @@
 :root {
   --main-sea-blue: rgb(169, 218, 222);
   --main-dark-color: rgba(255, 255, 255, 0);
-  --main-gray-color: rgba(255, 255, 255, 0.744);
+  --main-gray-color: rgba(255, 255, 255, 0.932);
   --win-color: rgb(111, 188, 111);
   --lost-color: rgb(245, 59, 59);
   --modal-duration: 1s;
@@ -40,7 +40,27 @@ body {
   padding: 0 2rem;
 }
 
+.header h1 {
+  background: linear-gradient(to right,
+      rgba(255, 0, 0, 0.373), rgba(255, 166, 0, 0.717),
+      rgb(255, 225, 0), green,
+      blue, indigo, rgb(6, 1, 6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .restart-btn {
   background: var(--main-gray-color);
   padding: 0.5rem 0.8rem;
+  border: 1px solid var(--main-gray-color);
+  border-radius: 4px;
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+}
+
+.restart-btn:hover {
+  background: var(--win-color);
+  border: 1px solid var(--win-color);
+  cursor: pointer;
+  color: var(--main-gray-color);
 }
