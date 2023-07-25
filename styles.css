@@ -74,6 +74,19 @@ body {
   grid-template-columns: repeat(2, 1fr);
 }
 
+
+@media (max-width: 700px) {
+  .score {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .score {
+    font-size: 0.8rem;
+  }
+}
+
 .score p:first-child {
   color: var(--win-color);
   background: var(--main-gray-color);
@@ -87,7 +100,7 @@ body {
 }
 
 .container h2 {
-  margin: 0.3rem 0 3rem 0;
+  margin: 0.3rem 0 2.5rem 0;
 }
 
 .choices {
@@ -103,4 +116,16 @@ body {
   cursor: pointer;
   color: var(--main-gray-color);
   transform: translateY(-1rem);
+}
+
+@media (max-width: 700px) {
+  .choice {
+    font-size: 6.875rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .choice {
+    font-size: 5rem;
+  }
 }
