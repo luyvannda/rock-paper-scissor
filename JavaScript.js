@@ -1,7 +1,36 @@
 
+const choices = document.querySelectorAll(".choice");
+const score = document.getElementById("score");
+const result = document.getElementById("result");
+const restart = document.getElementById("restart");
+const modal = document.querySelector('.modal');
+const scoreBoard = {
+  player: 0,
+  computer: 0
+};
+
+function play(e) {
+  restart.style.display = "inline-block";
+  const playerChoice = e.target.id;
+  const computerChoice = getComputerChoice();
+  const winner = getWinner(playerChoice, computerChoice);
+  console.log(`Player chose ${playerChoice}`);
+  console.log(`Computer chose ${computerChoice}`)
+}
+
+function getComputerChoice() {
+  let choices = ["rock", "paper", "scissors"];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  const randomChoice = choices[randomIndex];
+  return randomChoice
+}
+
+function getWinner(p, c) {
+
+}
 
 
-
+choices.forEach(choice => choice.addEventListener('click', play));
 
 /*
 const choices = ["rock", "paper", "scissors"];
