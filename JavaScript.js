@@ -1,12 +1,8 @@
 
 const choices = document.querySelectorAll(".choice");
 const result = document.getElementById("result");
-const restart = document.getElementById("restart");
+
 const modal = document.querySelector('.modal');
-const scoreBoard = {
-  player: 0,
-  computer: 0
-};
 
 function play(e) {
   restart.style.display = "inline-block";
@@ -17,7 +13,6 @@ function play(e) {
   console.log(`Computer chose ${computerChoice}`)
 
   const gameScore = getGameScore(playerChoice, computerChoice);
-  console.log(scoreBoard.player, scoreBoard.computer);
 }
 
 function getComputerChoice() {
@@ -26,6 +21,15 @@ function getComputerChoice() {
   const randomChoice = choices[randomIndex];
   return randomChoice
 }
+
+//Get Game Score
+const scoreBoard = {
+  player: 0,
+  computer: 0
+};
+
+const playerScore = document.querySelector(`#score p:first-child`);
+const cpuScore = document.querySelector(`#score p:last-child`);
 
 function getGameScore(player, cpu) {
 
@@ -40,16 +44,23 @@ function getGameScore(player, cpu) {
     console.log(`Computer won this round, come on pull yourself together`);
     scoreBoard.computer++;
   }
-  const playerScore = document.querySelector(`#score p:first-child`);
-  const cpuScore = document.querySelector(`#score p:last-child`);
 
   playerScore.textContent = `Player's Score: ${scoreBoard.player}`;
   cpuScore.textContent = `CPU's Score: ${scoreBoard.computer}`;
 }
 
+// Restart game 
+const restart = document.getElementById("restart");
 
+function restartGame(e) {
+  scoreBoard.player = 0;
+  scoreBoard.computer = 0;
+  playerScore.textContent = `Player's Score: 0`;
+  cpuScore.textContent = `CPU's Score: 0`;
+}
 
 choices.forEach(choice => choice.addEventListener('click', play));
+restart.addEventListener('click', restartGame);
 
 /*
 const choices = ["rock", "paper", "scissors"];
