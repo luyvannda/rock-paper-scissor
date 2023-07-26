@@ -25,9 +25,21 @@ function getComputerChoice() {
   return randomChoice
 }
 
-function getWinner(p, c) {
+function getWinner(player, cpu) {
 
+  if (player === cpu) {
+    console.log(`It is a tie, good luck next round`);
+  } else if (player === "rock" && cpu === "scissors"
+    || player === "paper" && cpu === "rock"
+    || player === "scissors" && cpu === "paper") {
+    console.log(`You won this round`);
+    return scoreBoard.player += 1;
+  } else {
+    console.log(`Computer won this round, come on pull yourself together`);
+    return scoreBoard.computer += 1;
+  }
 }
+
 
 
 choices.forEach(choice => choice.addEventListener('click', play));
