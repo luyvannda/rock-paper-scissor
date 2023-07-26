@@ -1,6 +1,5 @@
 
 const choices = document.querySelectorAll(".choice");
-const score = document.getElementById("score");
 const result = document.getElementById("result");
 const restart = document.getElementById("restart");
 const modal = document.querySelector('.modal');
@@ -13,9 +12,12 @@ function play(e) {
   restart.style.display = "inline-block";
   const playerChoice = e.target.id;
   const computerChoice = getComputerChoice();
-  const winner = getWinner(playerChoice, computerChoice);
+
   console.log(`Player chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`)
+
+  const gameScore = getGameScore(playerChoice, computerChoice);
+  console.log(scoreBoard.player, scoreBoard.computer);
 }
 
 function getComputerChoice() {
@@ -25,7 +27,7 @@ function getComputerChoice() {
   return randomChoice
 }
 
-function getWinner(player, cpu) {
+function getGameScore(player, cpu) {
 
   if (player === cpu) {
     console.log(`It is a tie, good luck next round`);
@@ -33,11 +35,16 @@ function getWinner(player, cpu) {
     || player === "paper" && cpu === "rock"
     || player === "scissors" && cpu === "paper") {
     console.log(`You won this round`);
-    return scoreBoard.player += 1;
+    scoreBoard.player++;
   } else {
     console.log(`Computer won this round, come on pull yourself together`);
-    return scoreBoard.computer += 1;
+    scoreBoard.computer++;
   }
+  const playerScore = document.querySelector(`#score p:first-child`);
+  const cpuScore = document.querySelector(`#score p:last-child`);
+
+  playerScore.textContent = `Player's Score: ${scoreBoard.player}`;
+  cpuScore.textContent = `CPU's Score: ${scoreBoard.computer}`;
 }
 
 
