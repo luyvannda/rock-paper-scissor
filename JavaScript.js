@@ -94,7 +94,7 @@ function clearModal(e) {
     cpuScore.textContent = `CPU's Score: 0`;
 
     const hints = document.querySelector(".hints p");
-    hints.textContent = `Play the game for 5 rounds and test your skills against the cpu.`;
+    hints.textContent = `Play the game against the cpu, winner is the first to get 5 scores.`;
   }
 }
 
@@ -108,7 +108,7 @@ function restartGame(e) {
   cpuScore.textContent = `CPU's Score: 0`;
 
   const hints = document.querySelector(".hints p");
-  hints.textContent = `Play the game for 5 rounds and test your skills against the cpu.`;
+  hints.textContent = `Play the game against the cpu, winner is the first to get 5 scores.`;
 }
 
 choices.forEach(choice => choice.addEventListener('click', play));
