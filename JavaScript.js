@@ -1,18 +1,13 @@
 
 const choices = document.querySelectorAll(".choice");
 const result = document.getElementById("result");
-
 const modal = document.querySelector('.modal');
 
 function play(e) {
   restart.style.display = "inline-block";
   const playerChoice = e.target.id;
   const computerChoice = getComputerChoice();
-
-  console.log(`Player chose ${playerChoice}`);
-  console.log(`Computer chose ${computerChoice}`)
-
-  const gameScore = getGameScore(playerChoice, computerChoice);
+  const playRound = getGameScore(playerChoice, computerChoice);
 }
 
 function getComputerChoice() {
@@ -21,6 +16,12 @@ function getComputerChoice() {
   const randomChoice = choices[randomIndex];
   return randomChoice
 }
+// log message to hint when player win lost or tie
+function log(message) {
+  const hints = document.querySelector(".hints p");
+  hints.textContent = message;
+}
+
 
 //Get Game Score
 const scoreBoard = {
@@ -32,16 +33,21 @@ const playerScore = document.querySelector(`#score p:first-child`);
 const cpuScore = document.querySelector(`#score p:last-child`);
 
 function getGameScore(player, cpu) {
-
   if (player === cpu) {
-    console.log(`It is a tie, good luck next round`);
+    log(`You chose ${player}.
+    Computer chose ${cpu}.
+    It is a tie, good luck next round!`);
   } else if (player === "rock" && cpu === "scissors"
     || player === "paper" && cpu === "rock"
     || player === "scissors" && cpu === "paper") {
-    console.log(`You won this round`);
+    log(`You chose ${player}.
+    Computer chose ${cpu}.
+    You won this round!`);
     scoreBoard.player++;
   } else {
-    console.log(`Computer won this round, come on pull yourself together`);
+    log(`You chose ${player}. 
+    Computer chose ${cpu}.
+    You lose this round, come on pull yourself together!`);
     scoreBoard.computer++;
   }
 
@@ -57,10 +63,15 @@ function restartGame(e) {
   scoreBoard.computer = 0;
   playerScore.textContent = `Player's Score: 0`;
   cpuScore.textContent = `CPU's Score: 0`;
+
+  const hints = document.querySelector(".hints p");
+  hints.textContent = `Play the game for 5 rounds and test your skills against the cpu.`;
 }
 
 choices.forEach(choice => choice.addEventListener('click', play));
 restart.addEventListener('click', restartGame);
+
+
 
 /*
 const choices = ["rock", "paper", "scissors"];
